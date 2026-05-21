@@ -1,0 +1,6 @@
+__pycache__/
+*.pyc
+.env
+.git
+full_memory.db
+data1.json
