@@ -632,7 +632,7 @@ def broadcast(message):
         try:
             # copy_message သည် Original Message ၏ ပုံစံ၊ Caption နှင့် Premium Emoji အားလုံးကို 
             # မူရင်းအတိုင်း ကူးယူပေးပို့သည်။ (Photo, Video, Sticker, Text, Audio အကုန်ရသည်)
-            bot.copy_message(
+            bot.forward_message(
                 chat_id=tid, 
                 from_chat_id=message.chat.id, 
                 message_id=target_msg.message_id
@@ -704,7 +704,7 @@ def start(message):
             join_kb = InlineKeyboardMarkup()
             clean_channel = FORCE_JOIN_CHANNEL.replace('@', '')
             join_kb.add(InlineKeyboardButton("Channal Join ပေးပါ", url=f"https://t.me/{clean_channel}"))
-            join_kb.add(InlineKeyboardButton("🔄  (စစ်ဆေးမည်)", url=f"https://t.me/MYANMAR_FRIEND_BOT?start=start"))
+            join_kb.add(InlineKeyboardButton("🔄  (စစ်ဆေးမည်)", url=f"https://t.me/{BOT_USERNAME}?start=start"))
             
             return bot.send_message(
                 message.chat.id, 
@@ -718,7 +718,7 @@ def start(message):
         "<tg-emoji emoji-id='5251299553239398548'>🤖</tg-emoji> <b>𝙼𝚢𝚊𝚗𝚖𝚊𝚛 𝙵𝚛𝚒𝚎𝚗𝚍 Bot Online!</b>\n\n"
         "<tg-emoji emoji-id='5240241223632954241'>🚫</tg-emoji> Bio / Join / Link spam auto delete\n"
         "<tg-emoji emoji-id='6271786398404055377'>⚠️</tg-emoji> 3 Warnings = Auto Mute\n\n"
-        "<tg-emoji emoji-id='5226945370684140473'>➕</tg-emoji> Bot ကို Group ထဲထည့်ပြီး Admin ပေးထားပါ။ မူရင်းရေးသားသူအား crdပါဗျာ<tg-emoji emoji-id='5226945370684140473'>➕</tg-emoji> ",
+        "<tg-emoji emoji-id='5226945370684140473'>➕</tg-emoji> Bot ကို Group ထဲထည့်ပြီး Admin ပေးထားပါ။<tg-emoji emoji-id='5226945370684140473'>➕</tg-emoji> ",
         reply_markup=main_buttons()
     )
             
@@ -728,7 +728,7 @@ def start(message):
 def help_command(message):
     help_text = (
         "👋 Owner အတွက် အသုံးပြုနိုင်သော Command များ-\n"
-        "/setmute\n /addword (global)\n /delword (global)\n /broadcast\n /d\n /list\n /astk\n"
+        "/setmute\n /addword (global)\n /delword (global)\n /broadcast\n /list\n"
         "/setwarn [message]\n /getwarn\n"
         "Group admins: /setword [word]\n /delword [word]\n"
     )
